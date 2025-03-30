@@ -1,0 +1,66 @@
+* {
+    font-family: "Poppins";
+
+}
+
+
+body {
+    background-color: rgb(10, 10, 10);
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(10, 10, 10);
+    padding: 0 5%;
+}
+main {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(10, 10, 10);
+    padding: 0 5%;
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        padding: 0 3%;
+    }
+}
+
+
+.primarybutton {
+    text-align: center;
+    font-size:  0.9rem;
+    text-align: center;
+    align-items: center;
+    width: 180px;
+    height: 50px;
+    border-radius: 2px;
+    border: solid 2px rgb(30, 30, 30);
+    background-color: rgb(30, 30, 30);
+    color: white;
+    margin-top: 60px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    margin: 20px;
+    transition: background-color 1s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 1),
+    0 0 25px rgba(0, 0, 0, 1),
+    0 0 35px rgba(0, 0, 0, 1); 
+  }
+
+  .primarybutton:hover {
+    background: linear-gradient(to right, #3f74ff, #7b3fff);
+    box-shadow: 
+    0 0 10px rgba(63, 116, 255, 0.6),
+    0 0 20px rgba(123, 63, 255, 0.4),
+    0 0 30px rgba(63, 116, 255, 0.2);
+    border: none;
+    cursor: pointer;
+  }

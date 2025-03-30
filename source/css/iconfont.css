@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4858950 */
+  src: url('iconfont.woff2?t=1742047325968') format('woff2'),
+       url('iconfont.woff?t=1742047325968') format('woff'),
+       url('iconfont.ttf?t=1742047325968') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-vscode:before {
+  content: "\e6b8";
+}
+
+.icon-git:before {
+  content: "\e747";
+}
+
+.icon-PostgreSQL:before {
+  content: "\e8b7";
+}
+
+.icon-java:before {
+  content: "\e6d7";
+}
+
+.icon-docker:before {
+  content: "\e600";
+}
+
+.icon-icons8-intellij-idea:before {
+  content: "\e603";
+}
+
+.icon-springboot:before {
+  content: "\e7c6";
+}
+
+.icon-icon_es:before {
+  content: "\e601";
+}
+
+.icon-RocketMQ:before {
+  content: "\e834";
+}
+
+.icon-Mysql:before {
+  content: "\e788";
+}
+
+.icon-Redis:before {
+  content: "\e789";
+}
+
+.icon-Kafka-copy:before {
+  content: "\e602";
+}
+
