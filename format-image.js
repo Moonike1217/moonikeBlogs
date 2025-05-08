@@ -7,29 +7,13 @@ const { matterMarkdownAdapter } = require('@elog/cli')
  * @return {Promise<DocDetail>} 返回处理后的文档对象
  */
 const format = async (doc, imageClient) => {
-  const cover = doc.properties.cover
-  // 将 cover 字段中的 notion 图片下载到本地
-  if (imageClient)  {
-    // 只有启用图床平台image.enable=true时，imageClient才能用，否则请自行实现图片上传
-    const url = await imageClient.uploadImageFromUrl(cover, doc)
-    // cover链接替换为本地图片
-    doc.properties.cover = url
-  }
   
   // 自定义front matter格式
   const frontMatter = generateCustomFrontMatter(doc.properties);
   
   // 使用默认适配器获取内容部分
-  const defaultBody = matterMarkdownAdapter(doc);
-  
-  // 从默认内容中提取正文部分（不含front matter）
-  const contentRegex = /^---\n[\s\S]*?\n---\n([\s\S]*)$/;
-  const contentMatch = defaultBody.match(contentRegex);
-  const content = contentMatch ? contentMatch[1] : '';
-  
-  // 合并自定义front matter和内容
-  doc.body = frontMatter + content;
-  
+  const content = matterMarkdownAdapter(doc);
+  doc.body = content;
   return doc;
 };
 
