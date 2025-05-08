@@ -39,7 +39,7 @@ const format = async (doc, imageClient) => {
  * @returns {string} 格式化的front matter
  */
 function generateCustomFrontMatter(properties) {
-  const { title, categories, tags, date } = properties;
+  const { title, categories, tags, date, updated } = properties;
   
   let frontMatter = '---\n';
   
@@ -76,14 +76,27 @@ function generateCustomFrontMatter(properties) {
     frontMatter += '  - null\n';
   }
   
-  // 添加日期
   if (date) {
-    const dateStr = new Date(date).toISOString().replace('T', ' ').substring(0, 19);
+    const localDate = new Date(new Date(date).getTime() + 8 * 60 * 60 * 1000);
+    const dateStr = localDate.toISOString().replace('T', ' ').substring(0, 19);
     frontMatter += `date: ${dateStr}\n`;
   } else {
-    const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-    frontMatter += `date: ${now}\n`;
+    const now = new Date(new Date().getTime() + 8 * 60 * 60 * 1000);
+    const nowStr = now.toISOString().replace('T', ' ').substring(0, 19);
+    frontMatter += `date: ${nowStr}\n`;
   }
+  
+  if (updated) {
+    const localUpdated = new Date(new Date(updated).getTime() + 8 * 60 * 60 * 1000);
+    const updatedStr = localUpdated.toISOString().replace('T', ' ').substring(0, 19);
+    frontMatter += `updated: ${updatedStr}\n`;
+  } else {
+    const now = new Date(new Date().getTime() + 8 * 60 * 60 * 1000);
+    const nowStr = now.toISOString().replace('T', ' ').substring(0, 19);
+    frontMatter += `updated: ${nowStr}\n`;
+  }
+  
+
   
   frontMatter += '---\n';
   return frontMatter;
