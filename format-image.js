@@ -1,4 +1,3 @@
-
 const { matterMarkdownAdapter } = require('@elog/cli')
 
 /**
@@ -16,9 +15,79 @@ const format = async (doc, imageClient) => {
     // cover链接替换为本地图片
     doc.properties.cover = url
   }
-  doc.body = matterMarkdownAdapter(doc);
+  
+  // 自定义front matter格式
+  const frontMatter = generateCustomFrontMatter(doc.properties);
+  
+  // 使用默认适配器获取内容部分
+  const defaultBody = matterMarkdownAdapter(doc);
+  
+  // 从默认内容中提取正文部分（不含front matter）
+  const contentRegex = /^---\n[\s\S]*?\n---\n([\s\S]*)$/;
+  const contentMatch = defaultBody.match(contentRegex);
+  const content = contentMatch ? contentMatch[1] : '';
+  
+  // 合并自定义front matter和内容
+  doc.body = frontMatter + content;
+  
   return doc;
 };
+
+/**
+ * 生成自定义front matter
+ * @param {Object} properties 文档属性
+ * @returns {string} 格式化的front matter
+ */
+function generateCustomFrontMatter(properties) {
+  const { title, categories, tags, date } = properties;
+  
+  let frontMatter = '---\n';
+  
+  // 添加标题
+  frontMatter += `title: ${title || 'Untitled'}\n`;
+  
+  // 添加分类
+  frontMatter += 'categories:\n';
+  if (categories && categories.length > 0) {
+    // 确保categories是数组格式
+    const cats = Array.isArray(categories) ? categories : [categories];
+    // 假设每个分类可能是以/分隔的多级分类，转换为数组格式
+    cats.forEach(category => {
+      const subCategories = String(category).split('/');
+      if (subCategories.length > 1) {
+        frontMatter += `  - [${subCategories.join(', ')}]\n`;
+      } else {
+        frontMatter += `  - ${category}\n`;
+      }
+    });
+  } else {
+    frontMatter += '  - [未分类]\n';
+  }
+  
+  // 添加标签
+  frontMatter += 'tags:\n';
+  if (tags && tags.length > 0) {
+    // 确保tags是数组格式
+    const tagArray = Array.isArray(tags) ? tags : [tags];
+    tagArray.forEach(tag => {
+      frontMatter += `  - ${tag}\n`;
+    });
+  } else {
+    frontMatter += '  - null\n';
+  }
+  
+  // 添加日期
+  if (date) {
+    const dateStr = new Date(date).toISOString().replace('T', ' ').substring(0, 19);
+    frontMatter += `date: ${dateStr}\n`;
+  } else {
+    const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
+    frontMatter += `date: ${now}\n`;
+  }
+  
+  frontMatter += '---\n';
+  return frontMatter;
+}
 
 module.exports = {
   format,
