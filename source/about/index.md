@@ -5,13 +5,7 @@ layout: about
 ---
 
 {% raw %}
-<div class="page-container">
-    <!-- GitHub 贡献图 -->
-    <div class="info-section github-section">
-        <div class="github-chart-wrapper">
-            <img class="github-chart" src="https://ghchart.rshah.org/Moonike1217" alt="Moonike's Github chart" />
-        </div>
-    </div>
+
 
     <!-- 个人介绍 -->
     <div class="info-section">
@@ -24,7 +18,7 @@ layout: about
             <p>目前专注于后端开发，同时也对前端技术充满兴趣。热衷于学习和分享，希望通过这个博客记录我的技术成长历程。</p>
         </div>
     </div>
-
+    
     <!-- 技术栈 -->
     <div class="info-section">
         <h2 class="section-title">
@@ -93,7 +87,7 @@ layout: about
                         </svg>
                         <span class="skill-name">IntelliJ IDEA</span>
                     </div>
-
+    
                     <!-- 新增技能 -->
                     <div class="skill-tag left-top">
                         <svg class="icon" aria-hidden="true">
@@ -101,21 +95,21 @@ layout: about
                         </svg>
                         <span class="skill-name">Kafka</span>
                     </div>
-
+    
                     <div class="skill-tag right-bottom-far">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-PostgreSQL"></use>
                         </svg>
                         <span class="skill-name">PostgreSQL</span>
                     </div>
-
+    
                     <div class="skill-tag left-bottom-far">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-RocketMQ"></use>
                         </svg>
                         <span class="skill-name">RocketMQ</span>
                     </div>
-
+    
                     <div class="skill-tag top-far">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-icon_es"></use>
@@ -126,7 +120,7 @@ layout: about
             </div>
         </div>
     </div>
-
+    
     <!-- 编程之余 -->
     <div class="info-section">
         <h2 class="section-title">
@@ -135,7 +129,7 @@ layout: about
         </h2>
         <div class="section-content">
             <div class="hobby-list">
-
+    
                 <div class="hobby-item">
                     <div class="hobby-logo">
                         <svg class="hobby-icon" aria-hidden="true">
@@ -147,7 +141,7 @@ layout: about
                         <p>多邻国重度使用者</p>
                     </div>
                 </div>
-
+    
                 <div class="hobby-item">
                     <div class="hobby-logo">
                         <svg class="hobby-icon" aria-hidden="true">
@@ -159,7 +153,7 @@ layout: about
                         <p>富家子弟 手握xt-3</p>
                     </div>
                 </div>
-
+    
                 <div class="hobby-item">
                     <div class="hobby-logo">
                         <svg class="hobby-icon" aria-hidden="true">
@@ -172,7 +166,8 @@ layout: about
                     </div>
                 </div>
 
-                
+
+​                
 
                 <div class="hobby-item">
                     <div class="hobby-logo">
@@ -185,7 +180,7 @@ layout: about
                         <p>喜欢旅游 但是没钱</p>
                     </div>
                 </div>
-
+    
                 <div class="hobby-item">
                     <div class="hobby-logo">
                         <svg class="hobby-icon" aria-hidden="true">
@@ -572,14 +567,14 @@ layout: about
     .info-section {
         padding: 20px;
     }
-
+    
     .skill-cloud {
         transform: scale(0.8);
         height: 500px;
         min-width: 900px; /* 确保在手机端有足够的宽度显示所有图标 */
         margin: 0 auto; /* 居中显示 */
     }
-
+    
     .skill-category {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -588,15 +583,15 @@ layout: about
         padding-bottom: 10px; /* 为滚动条留出空间 */
         scroll-behavior: smooth;
     }
-
+    
     .skill-category::-webkit-scrollbar {
         height: 6px;
     }
-
+    
     .skill-category::-webkit-scrollbar-track {
         background: transparent;
     }
-
+    
     .skill-category::-webkit-scrollbar-thumb {
         background-color: rgba(155, 155, 155, 0.5);
         border-radius: 3px;
@@ -609,7 +604,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setGithubScroll() {
         const githubChart = document.querySelector('.github-chart');
         const githubWrapper = document.querySelector('.github-chart-wrapper');
-        
+
         if (githubChart && githubWrapper) {
             // 确保图片和容器都已经完全加载和渲染
             if (githubChart.complete && githubWrapper.scrollWidth > 0) {
@@ -621,7 +616,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return true;
     }
-
+    
     // 多次尝试设置滚动位置
     let attempts = 0;
     const maxAttempts = 10;
@@ -631,13 +626,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         attempts++;
     }, 500);
-
+    
     // 图片加载事件
     const githubChart = document.querySelector('.github-chart');
     if (githubChart) {
         githubChart.addEventListener('load', setGithubScroll);
     }
-
+    
     // 设置技能云的滚动位置
     const skillCategories = document.querySelectorAll('.skill-category');
     skillCategories.forEach(category => {
@@ -720,7 +715,7 @@ document.addEventListener('DOMContentLoaded', function() {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
-
+    
     .hobby-logo {
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }

@@ -17,6 +17,7 @@ const format = async (doc, imageClient) => {
   return doc;
 };
 
+
 /**
  * 生成自定义front matter
  * @param {Object} properties 文档属性
