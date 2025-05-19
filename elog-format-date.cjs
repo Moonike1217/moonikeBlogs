@@ -11,10 +11,11 @@ dayjs.extend(utc); dayjs.extend(timezone);
  * @returns {Promise<DocDetail>}
  */
 async function format(doc, imageClient) {
-  // 1. 获取原始 date 、 updated 、 catogories字符串
+  // 1. 获取原始信息
   const rawDate = doc.properties.date;       
   const rawUpdated = doc.properties.updated;                  
   const rawCategories = doc.properties.categories;
+  const rawMermaid = doc.properties.mermaid;
 
   // 2. 计算东八区日期
   const adjustedDate = dayjs.utc(rawDate)                           
@@ -39,20 +40,22 @@ async function format(doc, imageClient) {
   });
   formattedCategories = formattedCategories || '\n  - [未分类]';
 
-
-  // 4. 手动拼装 YAML Front Matter
-  const fm = [
+  // 手动拼装 YAML Front Matter
+  const fmLines = [
     '---',
     `title: ${doc.properties.title}`,
     `date: ${adjustedDate}`,
     `updated: ${adjustedUpdated}`,
     `categories: ${formattedCategories}`,
-    `cover: ${doc.properties.cover || ''}`,
-    '---',
-    ''
-  ].join('\n');
+    `cover: ${doc.properties.cover || ''}`
+  ];
+  if (rawMermaid === true || doc.body_original.includes('```mermaid')) {
+    fmLines.push('mermaid: true');
+  }
+  fmLines.push('---', '');
+  const fm = fmLines.join('\n');
 
-  // 4. 合并 body 原文
+  // 合并 body 原文
   doc.body = fm + doc.body_original;                           
   return doc;
 }
