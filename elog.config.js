@@ -25,10 +25,16 @@ module.exports = {
   },
   image: {
     enable: true,
-    platform: 'local',
+    platform: 'github',
     local: {
       outputDir: './source/images',
       prefixKey: '/images'
+    },
+    github: {
+      token: process.env.GITHUB_TOKEN,
+      user: process.env.GITHUB_USER,
+      repo: process.env.GITHUB_REPO,
+      branch: process.env.GITHUB_BRANCH
     }
   },
 }
