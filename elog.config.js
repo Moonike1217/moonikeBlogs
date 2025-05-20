@@ -32,10 +32,10 @@ module.exports = {
       prefixKey: '/images'
     },
     github: {
-      token: process.env.GITHUB_TOKEN,
-      user: process.env.GITHUB_USER,
-      repo: process.env.GITHUB_REPO,
-      branch: process.env.GITHUB_BRANCH
+      token: process.env.IMAGEHOSTING_GITHUB_TOKEN,
+      user: process.env.IMAGEHOSTING_GITHUB_USER,
+      repo: process.env.IMAGEHOSTING_GITHUB_REPO,
+      branch: process.env.IMAGEHOSTING_GITHUB_BRANCH
     }
   },
 }

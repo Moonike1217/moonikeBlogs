@@ -12,7 +12,6 @@ dayjs.extend(utc); dayjs.extend(timezone);
  */
 async function format(doc, imageClient) {
   const docBody = doc.body;
-  console.log(docBody);
   // 1. 获取原始信息
   const rawDate = doc.properties.date;       
   const rawUpdated = doc.properties.updated;                  
@@ -59,7 +58,6 @@ async function format(doc, imageClient) {
 
   // 合并 body 原文
   doc.body = fm + docBody;           
-  console.log(doc.body);
   return doc;
 }
 
