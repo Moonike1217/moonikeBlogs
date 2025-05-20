@@ -17,6 +17,7 @@ async function format(doc, imageClient) {
   const rawUpdated = doc.properties.updated;                  
   const rawCategories = doc.properties.categories;
   const rawMermaid = doc.properties.mermaid;
+  const rawMath = doc.properties.math;
 
   // 2. 计算东八区日期
   const adjustedDate = dayjs.utc(rawDate)                           
@@ -52,6 +53,9 @@ async function format(doc, imageClient) {
   ];
   if (rawMermaid === true || doc.body_original.includes('```mermaid')) {
     fmLines.push('mermaid: true');
+  }
+  if (rawMath === true || doc.body_original.includes('$')) {
+    fmLines.push('math: true');
   }
   fmLines.push('---', '');
   const fm = fmLines.join('\n');
