@@ -1,3 +1,5 @@
+const { format } = require("./front-matter.cjs");
+
 module.exports = {
   write: {
     platform: 'notion',
@@ -19,8 +21,7 @@ module.exports = {
         include: ['categories', 'tags', 'title', 'date', 'updated', 'permalink', 'cover', 'description'],
         timeFormat: true,
       },
-      // formatExt: './format-image.js',
-      formatExt: './elog-format-date.cjs',
+      formatExt: './front-matter.cjs',
     }
   },
   image: {
