@@ -93,9 +93,9 @@
     {
       "id": "1f868e16-5acb-803b-98dc-d5408a35a266",
       "doc_id": "1f868e16-5acb-803b-98dc-d5408a35a266",
-      "updated": 1747644960000,
+      "updated": 1747720740000,
       "properties": {
-        "updated": "2025-05-19T08:56:00.000Z",
+        "updated": "2025-05-20T05:59:00.000Z",
         "categories": "Java/Java虚拟机",
         "date": "2025-05-19T08:46:00.000Z",
         "cover": "",
@@ -104,60 +104,14 @@
       "realName": "浅谈 JVM 堆内存",
       "relativePath": "/浅谈 JVM 堆内存.md",
       "docPath": "./source/_posts"
-    },
-    {
-      "id": "1f968e16-5acb-80da-8dd5-f60a314097e0",
-      "doc_id": "1f968e16-5acb-80da-8dd5-f60a314097e0",
-      "updated": 1747709940000,
-      "properties": {
-        "updated": "2025-05-20T02:59:00.000Z",
-        "categories": "Java/Java虚拟机",
-        "date": "2025-05-20T02:59:00.000Z",
-        "cover": "",
-        "title": "浅谈 JVM 堆内存2"
-      },
-      "realName": "浅谈 JVM 堆内存2",
-      "relativePath": "\\浅谈 JVM 堆内存2.md",
-      "docPath": "./source/_posts"
     }
   ],
   "catalog": [
     {
       "object": "page",
-      "id": "1f968e16-5acb-80da-8dd5-f60a314097e0",
-      "created_time": "2025-05-20T02:59:00.000Z",
-      "last_edited_time": "2025-05-20T02:59:00.000Z",
-      "created_by": {
-        "object": "user",
-        "id": "c01ee1c2-b919-4a5a-b3fb-d82ccb3cd351"
-      },
-      "last_edited_by": {
-        "object": "user",
-        "id": "c01ee1c2-b919-4a5a-b3fb-d82ccb3cd351"
-      },
-      "cover": null,
-      "icon": null,
-      "parent": {
-        "type": "database_id",
-        "database_id": "1c668e16-5acb-80ca-8e10-e28fe89ec0d4"
-      },
-      "archived": false,
-      "in_trash": false,
-      "properties": {
-        "updated": "2025-05-20T02:59:00.000Z",
-        "categories": "Java/Java虚拟机",
-        "date": "2025-05-20T02:59:00.000Z",
-        "cover": "",
-        "title": "浅谈 JVM 堆内存2"
-      },
-      "url": "https://www.notion.so/JVM-2-1f968e165acb80da8dd5f60a314097e0",
-      "public_url": null
-    },
-    {
-      "object": "page",
       "id": "1f868e16-5acb-803b-98dc-d5408a35a266",
       "created_time": "2025-05-19T08:46:00.000Z",
-      "last_edited_time": "2025-05-19T08:56:00.000Z",
+      "last_edited_time": "2025-05-20T05:59:00.000Z",
       "created_by": {
         "object": "user",
         "id": "c01ee1c2-b919-4a5a-b3fb-d82ccb3cd351"
@@ -175,14 +129,11 @@
       "archived": false,
       "in_trash": false,
       "properties": {
-        "updated": "2025-05-19T08:56:00.000Z",
+        "updated": "2025-05-20T05:59:00.000Z",
         "categories": "Java/Java虚拟机",
-        "mermaid": "true",
-        "status": "已发布",
         "date": "2025-05-19T08:46:00.000Z",
         "cover": "",
-        "title": "浅谈 JVM 堆内存",
-        "urlname": "1f868e16-5acb-803b-98dc-d5408a35a266"
+        "title": "浅谈 JVM 堆内存"
       },
       "url": "https://www.notion.so/JVM-1f868e165acb803b98dcd5408a35a266",
       "public_url": null

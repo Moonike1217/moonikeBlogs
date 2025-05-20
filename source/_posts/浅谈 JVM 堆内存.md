@@ -1,7 +1,7 @@
 ---
 title: 浅谈 JVM 堆内存
 date: 2025-05-19T16:46:00
-updated: 2025-05-19T16:56:00
+updated: 2025-05-20T13:59:00
 categories: 
   - [Java, Java虚拟机]
 cover: 
@@ -22,13 +22,13 @@ mermaid: true
 # 堆内存的组成部分
 
 
-首先来思考一个问题，为什么要分代？如果不分代，那么所有的实例对象都会存储到一起，在进行垃圾回收（GC）时，如果我们想要找到哪些对象需要被回收，需要对整个堆进行扫描，这个步骤的资源开销是非常大的。如果分代，我们将部分“朝生夕死”的对象放在一个特定的区域，那么在进行 GC 时优先回收这块区域，这样就能 **极大地提高 GC 效率**。
+首先思考一个问题，为什么要分代？如果不分代，那么所有的实例对象都会存储到一起，在进行垃圾回收（GC）时，如果我们想要找到哪些对象需要被回收，需要对整个堆进行扫描，这个步骤的资源开销是非常大的。如果分代，我们将部分“朝生夕死”的对象放在一个特定的区域，那么在进行 GC 时优先回收这块区域，这样就能 **极大地提高 GC 效率**。
 
 
 ## 逻辑上
 
 
-在 Java 堆内存的逻辑结构中，可以分为以下几个部分（以 JDK 8 为基准）：
+我们可以将 Java 堆内存的**逻辑结构**分为以下几个部分（以 JDK 8 为基准）：
 
 - **新生代（Young Generation）**
     - **Eden 区**
@@ -41,13 +41,13 @@ mermaid: true
     - 理论上并未限定方法区的所在位置，真实位置根据 JDK 版本和虚拟机而有所不同
     - 在 JDK 1.7 及之前，方法区通过 **永久代（PermGen）** 实现，所在位置为 JVM 管理的**非堆内存**；在 JDK 1.8 及以后，方法区通过 **元空间 （Metaspace）** 实现，所在位置为本地内存。
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/67fd23e5-3fb2-4ba8-8968-5260e1dcaee4/130e3fcf-e8d6-4a3c-8171-db97b0e0c02b/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UZ3Z3IFD%2F20250519%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250519T090929Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEND%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQD0QTjaeWu1IZwXXfLWjVofvdtJLA%2F5seEkCYHil6d5GgIhAPcGbAKcckkpOEHh950l0aByDua4kR7AzjUUbv4s9XV5KogECIn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1Igww3hhHPnx%2BuA9iB%2FAq3AOCLMSZxZpDWotK4lwZ0OU0mp13ebW01nbNv80RYx9OeRzlMXZ2k1lGXbgk2CVtC1eEt3DaxJSjkECOHfu69BCijuvhXlQyUTCabI%2FG6WaRgKLSq1AmNl7ufvhzTk%2BaNSMGuk02VhGOIecTCItPH52oTynoV1z%2BVnVLXOLL52d7bMyNY2TO6zMNMuVV6BLerEcYp6H8Oo2VS5ukNmcFvh%2BNxWZGdSv6JFL3AYpm8Sv3Vi06a%2FrkXmhta6ekznC3xtbYyWZQfvaRisMHF%2FqgEki4OqxJ9KRFrG5jwBXIErm96IVNE%2B0SH%2FRaRZdpBxGuJM%2B27DnKdqeiDld3cSTtlCA3mYcwG3gVek27FuKIifBoN0RlcuqfbiBIwITvaxfRebP4KLxGbE24hKKN6yPNr%2FwRGm%2F0Hyr8QNgX9fvtHjuVvkQxHCqtqIQFfIqYdkY9rCmb6Xbg7wyIaP5rSR0tlnVxYid8zLXGTQrp3GHdKHWR%2F4VeVHmEEmv5HtQNWK2jTTOfmloLzE0Yu0THJRzpkq0HaSg%2B5EMHz%2FZ6EQM5wLbkD4yGu7KV1gQaO%2FAu1qR9LDpkZ6MYFOzK%2Bbc7stAGUgTMUe0A112XvZty3jJ9eR1CoqrbzdcFVdL1N2zwPTCm0KvBBjqkAXiEoWxUFNdXrOD2K00RQt37f%2B3ejRdKDMIkRQNdd6mFUspNzul8bp%2BXDQXrpY6U89KPzmXRRm4ivjJV3lrhZWiYU7GtHqQx4Lpu%2FcL3nK%2B%2BOPbxSgKLZT0rWLyLbig%2FaUggyKdQYnY60jHLugQYdoxQd1mtXWnTllKqsKyp4J2oImmNyF%2ByXdkDXCGqTWlsLcWWEcO9WMPopsoXJ1j9%2Bq1LWjjr&X-Amz-Signature=16291b192848bc65cece09aa8257e6c547773bc4580c6c0aa77ec0a535c23004&X-Amz-SignedHeaders=host&x-id=GetObject)
+![image.png](https://raw.githubusercontent.com/Moonike1217/imageHosting/main/50ded6a15111c877d767901e5fd998c8.png)
 
 
 ## 物理上
 
 
-堆内存**在物理上**由新生代和老年代组成，也就是**堆内存的大小 = 新生代的大小 + 老年代的大小**。
+堆内存**在物理上**由新生代和老年代组成，简单来说：**堆内存的大小 = 新生代的大小 + 老年代的大小**。
 
 
 # 堆内存的空间分配
@@ -65,7 +65,7 @@ mermaid: true
 JVM 默认有参数 `-XX:+UseAdaptiveSizePolicy`（默认开启），会导致这个 8 : 1 : 1 比例自动变化。如果不想让这个比例发生变化，也可以关闭参数`-XX:-UseAdaptiveSizePolicy` 。
 
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/67fd23e5-3fb2-4ba8-8968-5260e1dcaee4/ec126dc9-652c-44ed-877a-8c320400a54d/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UZ3Z3IFD%2F20250519%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250519T090929Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEND%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQD0QTjaeWu1IZwXXfLWjVofvdtJLA%2F5seEkCYHil6d5GgIhAPcGbAKcckkpOEHh950l0aByDua4kR7AzjUUbv4s9XV5KogECIn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1Igww3hhHPnx%2BuA9iB%2FAq3AOCLMSZxZpDWotK4lwZ0OU0mp13ebW01nbNv80RYx9OeRzlMXZ2k1lGXbgk2CVtC1eEt3DaxJSjkECOHfu69BCijuvhXlQyUTCabI%2FG6WaRgKLSq1AmNl7ufvhzTk%2BaNSMGuk02VhGOIecTCItPH52oTynoV1z%2BVnVLXOLL52d7bMyNY2TO6zMNMuVV6BLerEcYp6H8Oo2VS5ukNmcFvh%2BNxWZGdSv6JFL3AYpm8Sv3Vi06a%2FrkXmhta6ekznC3xtbYyWZQfvaRisMHF%2FqgEki4OqxJ9KRFrG5jwBXIErm96IVNE%2B0SH%2FRaRZdpBxGuJM%2B27DnKdqeiDld3cSTtlCA3mYcwG3gVek27FuKIifBoN0RlcuqfbiBIwITvaxfRebP4KLxGbE24hKKN6yPNr%2FwRGm%2F0Hyr8QNgX9fvtHjuVvkQxHCqtqIQFfIqYdkY9rCmb6Xbg7wyIaP5rSR0tlnVxYid8zLXGTQrp3GHdKHWR%2F4VeVHmEEmv5HtQNWK2jTTOfmloLzE0Yu0THJRzpkq0HaSg%2B5EMHz%2FZ6EQM5wLbkD4yGu7KV1gQaO%2FAu1qR9LDpkZ6MYFOzK%2Bbc7stAGUgTMUe0A112XvZty3jJ9eR1CoqrbzdcFVdL1N2zwPTCm0KvBBjqkAXiEoWxUFNdXrOD2K00RQt37f%2B3ejRdKDMIkRQNdd6mFUspNzul8bp%2BXDQXrpY6U89KPzmXRRm4ivjJV3lrhZWiYU7GtHqQx4Lpu%2FcL3nK%2B%2BOPbxSgKLZT0rWLyLbig%2FaUggyKdQYnY60jHLugQYdoxQd1mtXWnTllKqsKyp4J2oImmNyF%2ByXdkDXCGqTWlsLcWWEcO9WMPopsoXJ1j9%2Bq1LWjjr&X-Amz-Signature=df799f34f0fc3a5b75c07db48948eb4f1277026f37ee107d5c4aaf4105eaa9c1&X-Amz-SignedHeaders=host&x-id=GetObject)
+![image.png](https://raw.githubusercontent.com/Moonike1217/imageHosting/main/b5b0aacfdc57241bc21f9dbe4b19b88f.png)
 
 
 # 新生代
@@ -113,13 +113,13 @@ graph TD
 假设我们现在只有一个 Survivor 区，并且 Eden 区和 Survivor 区中各有一部分资源。现在进行 Minor GC，将 Eden 区中存活的对象复制到 Survivor 区中，此时就有可能使内存碎片化，如下图： 
 
 
-![9f7cc7f2-1a72-43d3-8ec5-22a12b20bfdf.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/67fd23e5-3fb2-4ba8-8968-5260e1dcaee4/adbf7df7-5e97-4610-a0c6-454abc46f917/9f7cc7f2-1a72-43d3-8ec5-22a12b20bfdf.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UZ3Z3IFD%2F20250519%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250519T090929Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEND%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQD0QTjaeWu1IZwXXfLWjVofvdtJLA%2F5seEkCYHil6d5GgIhAPcGbAKcckkpOEHh950l0aByDua4kR7AzjUUbv4s9XV5KogECIn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1Igww3hhHPnx%2BuA9iB%2FAq3AOCLMSZxZpDWotK4lwZ0OU0mp13ebW01nbNv80RYx9OeRzlMXZ2k1lGXbgk2CVtC1eEt3DaxJSjkECOHfu69BCijuvhXlQyUTCabI%2FG6WaRgKLSq1AmNl7ufvhzTk%2BaNSMGuk02VhGOIecTCItPH52oTynoV1z%2BVnVLXOLL52d7bMyNY2TO6zMNMuVV6BLerEcYp6H8Oo2VS5ukNmcFvh%2BNxWZGdSv6JFL3AYpm8Sv3Vi06a%2FrkXmhta6ekznC3xtbYyWZQfvaRisMHF%2FqgEki4OqxJ9KRFrG5jwBXIErm96IVNE%2B0SH%2FRaRZdpBxGuJM%2B27DnKdqeiDld3cSTtlCA3mYcwG3gVek27FuKIifBoN0RlcuqfbiBIwITvaxfRebP4KLxGbE24hKKN6yPNr%2FwRGm%2F0Hyr8QNgX9fvtHjuVvkQxHCqtqIQFfIqYdkY9rCmb6Xbg7wyIaP5rSR0tlnVxYid8zLXGTQrp3GHdKHWR%2F4VeVHmEEmv5HtQNWK2jTTOfmloLzE0Yu0THJRzpkq0HaSg%2B5EMHz%2FZ6EQM5wLbkD4yGu7KV1gQaO%2FAu1qR9LDpkZ6MYFOzK%2Bbc7stAGUgTMUe0A112XvZty3jJ9eR1CoqrbzdcFVdL1N2zwPTCm0KvBBjqkAXiEoWxUFNdXrOD2K00RQt37f%2B3ejRdKDMIkRQNdd6mFUspNzul8bp%2BXDQXrpY6U89KPzmXRRm4ivjJV3lrhZWiYU7GtHqQx4Lpu%2FcL3nK%2B%2BOPbxSgKLZT0rWLyLbig%2FaUggyKdQYnY60jHLugQYdoxQd1mtXWnTllKqsKyp4J2oImmNyF%2ByXdkDXCGqTWlsLcWWEcO9WMPopsoXJ1j9%2Bq1LWjjr&X-Amz-Signature=d4b0f4ca366e303c6f7f2010abfb8624ae83e5f29edb7b4c31c094604847dc71&X-Amz-SignedHeaders=host&x-id=GetObject)
+![9f7cc7f2-1a72-43d3-8ec5-22a12b20bfdf.png](https://raw.githubusercontent.com/Moonike1217/imageHosting/main/2c9fe5e6c877db73a3640301c2083b4b.png)
 
 
 内存碎片化 （Memory Fragmentation）会严重影响 Java 程序的性能。堆空间碎片化，最直接的结果就是 **堆内存中没有足够大的连续内存空间**，如果此时程序需要给一个内存需求很大的对象分配内存空间，就会出现问题，最常见的是抛出 `java.lang.OutOfMemoryError: Java heap space` 异常。顺理成章，我们应该建立两块 Survivor 区，保证每时每刻都有一块 Survivor 区是空的，另一个非空的 Survivor 区无碎片，如下图：
 
 
-![66b22ac0-a4c9-4c52-9769-337c4029ac13.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/67fd23e5-3fb2-4ba8-8968-5260e1dcaee4/c8a7c2b7-73cf-4845-965c-6a3a31f62d9d/66b22ac0-a4c9-4c52-9769-337c4029ac13.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UZ3Z3IFD%2F20250519%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250519T090929Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEND%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQD0QTjaeWu1IZwXXfLWjVofvdtJLA%2F5seEkCYHil6d5GgIhAPcGbAKcckkpOEHh950l0aByDua4kR7AzjUUbv4s9XV5KogECIn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1Igww3hhHPnx%2BuA9iB%2FAq3AOCLMSZxZpDWotK4lwZ0OU0mp13ebW01nbNv80RYx9OeRzlMXZ2k1lGXbgk2CVtC1eEt3DaxJSjkECOHfu69BCijuvhXlQyUTCabI%2FG6WaRgKLSq1AmNl7ufvhzTk%2BaNSMGuk02VhGOIecTCItPH52oTynoV1z%2BVnVLXOLL52d7bMyNY2TO6zMNMuVV6BLerEcYp6H8Oo2VS5ukNmcFvh%2BNxWZGdSv6JFL3AYpm8Sv3Vi06a%2FrkXmhta6ekznC3xtbYyWZQfvaRisMHF%2FqgEki4OqxJ9KRFrG5jwBXIErm96IVNE%2B0SH%2FRaRZdpBxGuJM%2B27DnKdqeiDld3cSTtlCA3mYcwG3gVek27FuKIifBoN0RlcuqfbiBIwITvaxfRebP4KLxGbE24hKKN6yPNr%2FwRGm%2F0Hyr8QNgX9fvtHjuVvkQxHCqtqIQFfIqYdkY9rCmb6Xbg7wyIaP5rSR0tlnVxYid8zLXGTQrp3GHdKHWR%2F4VeVHmEEmv5HtQNWK2jTTOfmloLzE0Yu0THJRzpkq0HaSg%2B5EMHz%2FZ6EQM5wLbkD4yGu7KV1gQaO%2FAu1qR9LDpkZ6MYFOzK%2Bbc7stAGUgTMUe0A112XvZty3jJ9eR1CoqrbzdcFVdL1N2zwPTCm0KvBBjqkAXiEoWxUFNdXrOD2K00RQt37f%2B3ejRdKDMIkRQNdd6mFUspNzul8bp%2BXDQXrpY6U89KPzmXRRm4ivjJV3lrhZWiYU7GtHqQx4Lpu%2FcL3nK%2B%2BOPbxSgKLZT0rWLyLbig%2FaUggyKdQYnY60jHLugQYdoxQd1mtXWnTllKqsKyp4J2oImmNyF%2ByXdkDXCGqTWlsLcWWEcO9WMPopsoXJ1j9%2Bq1LWjjr&X-Amz-Signature=ad1b28d3aee421a5dd8d1c8566750ddbc3e53f3eeb658038d1995ae9ada12ce9&X-Amz-SignedHeaders=host&x-id=GetObject)
+![66b22ac0-a4c9-4c52-9769-337c4029ac13.png](https://raw.githubusercontent.com/Moonike1217/imageHosting/main/dee81368f589674ccfee9462aabee68c.png)
 
 
 # 老年代
