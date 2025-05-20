@@ -1,15 +1,16 @@
 ---
-updated: '2025-05-08T14:44:00.000Z'
-categories: Java/Java基础
-date: '2025-05-08T14:42:00.000Z'
-cover: ''
 title: ThreadLocal原理详解
+date: 2025-05-08T22:42:00
+updated: 2025-05-20T15:01:00
+categories: 
+  - [Java, Java基础]
+cover: 
 ---
 
 # 什么是 ThreadLocal
 
 
-ThreadLocal 是一个线程级别变量，每个线程都有一个 ThreadLocal 的副本，竞态条件被彻底消除，在并发情况下是绝对安全的变量。当我们执行 `ThreadLocal<T> value = new ThreadLocal<T>();` ，系统会自动在每一个线程上创建一个 T 的副本，副本之间彼此独立，互不影响，可以用 ThreadLocal 存储一些参数，以便在线程中多个方法中使用，用以代替方法传参的做法。
+ThreadLocal 是一个线程级别的变量，每个线程都有一个 ThreadLocal 的副本，竞态条件被彻底消除，在并发情况下是绝对安全的变量。当我们执行 `ThreadLocal<T> value = new ThreadLocal<T>();` ，系统会自动在每一个线程上创建一个 T 的副本，副本之间彼此独立，互不影响，可以用 ThreadLocal 存储一些参数，以便在线程中多个方法中使用，用以代替方法传参的做法。
 
 
 # ThreadLocal 的底层实现

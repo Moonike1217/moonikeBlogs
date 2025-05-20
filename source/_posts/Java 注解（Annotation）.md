@@ -1,15 +1,16 @@
 ---
-updated: '2025-05-14T02:49:00.000Z'
-categories: Java/Java基础
-date: '2025-05-13T06:44:00.000Z'
-cover: ''
 title: Java 注解（Annotation）
+date: 2025-05-13T14:44:00
+updated: 2025-05-20T15:01:00
+categories: 
+  - [Java, Java基础]
+cover: 
 ---
 
 # 什么是注解
 
 
-Java 注解（Annotation）是一种 **元数据**（描述数据的数据），以 `@注解名` 的形式附加在类、方法、字段等代码元素上，用于提供额外信息。注解不会也不能影响代码的实际逻辑，仅仅起到辅助性的作用，其包含在 `java.lang.annotation` 包中。
+Java 注解（Annotation）是一种 **元数据**（描述数据的数据），以 `@注解名` 的形式附加在类、方法、字段等代码元素上，用于提供额外信息。注解不会也不能影响代码的实际逻辑，仅起到辅助性的作用，其包含在 `java.lang.annotation` 包中。
 
 
 # 注解的用处
