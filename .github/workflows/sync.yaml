@@ -32,6 +32,10 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          IMAGEHOSTING_GITHUB_TOKEN: ${{ secrets.IMAGEHOSTING_GITHUB_TOKEN }}
+          IMAGEHOSTING_GITHUB_USER: ${{ secrets.IMAGEHOSTING_GITHUB_USER }}
+          IMAGEHOSTING_GITHUB_REPO: ${{ secrets.IMAGEHOSTING_GITHUB_REPO }}
+          IMAGEHOSTING_GITHUB_BRANCH: ${{ secrets.IMAGEHOSTING_GITHUB_BRANCH }}
         run: |
           npm run sync
 
