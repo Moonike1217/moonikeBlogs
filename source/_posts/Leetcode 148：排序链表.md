@@ -1,9 +1,10 @@
 ---
-updated: '2025-05-09T06:22:00.000Z'
-categories: 算法
-date: '2025-05-09T06:13:00.000Z'
-cover: ''
 title: Leetcode 148：排序链表
+date: 2025-05-09T14:13:00
+updated: 2025-05-20T14:22:00
+categories: 
+  - [算法, 刷穿Leetcode]
+cover: 
 ---
 
 # 题目背景
