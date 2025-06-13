@@ -1,7 +1,7 @@
 ---
 title: 线程池 ThreadPoolExecutor
 date: 2025-03-11T20:10:00
-updated: 2025-05-20T14:37:00
+updated: 2025-06-13T16:48:00
 categories: 
   - [Java, Java并发编程]
 cover: 
