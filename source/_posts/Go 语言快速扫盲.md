@@ -1,7 +1,7 @@
 ---
 title: Go 语言快速扫盲
 date: 2025-07-03T14:25:00
-updated: 2025-07-08T14:26:00
+updated: 2025-07-18T10:12:00
 categories: 
   - Go
 cover: 
@@ -331,5 +331,33 @@ func main() {
 ```
 
 
-# 实践
+2025年7月9日记：上面主要梳理了一些 Go 语言的基础知识，后续会在本文章下面增量更新一些时间过程中遇到的小知识。由于笔者的主要技术栈为 Java ，所以可能会采用类比的方式进行梳理。
+
+
+# 切片操作
+
+
+示例代码：
+
+
+```go
+// 方式1：make显式创建
+list := make([]repository.Test, 0)
+
+// 方式2：字面量初始化（更简洁）
+list := []repository.Test{}
+
+// Java等价代码
+List<Test> list = new ArrayList<>();
+```
+
+- 使用 `make` 创建切片可以指定初始容量（比如0，10，20），便于后续维护。
+- 向切片中添加数据一般使用 `append` 函数
+
+```go
+slice = append(slice, elem1, elem2, ...)
+```
+
+
+# 包
 
