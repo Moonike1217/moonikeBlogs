@@ -458,6 +458,7 @@ footer:
       <span id="times">载入时分秒...</span>
       <script src="/js/duration.js"></script>
     </div>
+    <script defer src="/_vercel/insights/script.js"></script>
   '
 
   # 展示网站的 PV、UV 统计数
