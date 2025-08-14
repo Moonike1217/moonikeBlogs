@@ -1,9 +1,9 @@
 ---
 title: ThreadLocal原理详解
 date: 2025-05-08T22:42:00
-updated: 2025-05-20T15:01:00
+updated: 2025-08-11T14:55:00
 categories: 
-  - [Java, Java基础]
+  - [Java, Java并发编程]
 cover: 
 ---
 
@@ -19,7 +19,7 @@ ThreadLocal 是一个线程级别的变量，每个线程都有一个 ThreadLoca
 `ThreadLocalMap` 是 `ThreadLocal` 的内部静态类，是一个**定制版的哈希表结构**，每个线程对象 `Thread` 内部都有一个 `ThreadLocalMap`，用于保存所有和该线程相关的 `ThreadLocal` 变量。
 
 
-ThreadLocalMap 的 Key 是对 ThreadLocal 对象的弱引用，Value 是实际要存放的数据。ThreadLocalMap 通过开地址法解决哈希冲突问题。
+ThreadLocalMap 的 Key 是对 ThreadLocal 对象的弱引用，Value 是实际要存放的数据。ThreadLocalMap 通过**开地址法**解决哈希冲突问题。
 
 
 # 为什么 Key 是弱引用但 Value 是强引用
@@ -96,7 +96,7 @@ try {
 # TransmittableThreadLocal （TTL）
 
 
-在 `ThreadLocal` 基础上，TransmittableThreadLocal  **增强了线程池场景下的上下文传递能力**。
+JDK 默认没有支持线程池场景下 `ThreadLocal` 值传递的功能，因此阿里巴巴开源了一套工具 `TransmittableThreadLocal` 来实现该功能。阿里无法改动 JDK 的源码，因此他内部通过 **装饰器模式** 在原有的功能上做增强，以此来实现线程池场景下的 `ThreadLocal` 值传递。
 
 
 ## 原理对比
