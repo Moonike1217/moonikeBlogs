@@ -897,9 +897,13 @@
       "properties": {
         "updated": "2025-08-17T13:42:00.000Z",
         "categories": "计算机网络",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2025-08-17T08:04:00.000Z",
         "cover": "",
-        "title": "TCP 连接的三次握手和四次挥手"
+        "math": "",
+        "title": "TCP 连接的三次握手和四次挥手",
+        "urlname": "25268e16-5acb-805c-a755-e0d55eb7562f"
       },
       "url": "https://www.notion.so/TCP-25268e165acb805ca755e0d55eb7562f",
       "public_url": null
@@ -928,9 +932,13 @@
       "properties": {
         "updated": "2025-08-17T13:42:00.000Z",
         "categories": "Java/Java基础",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2025-08-16T09:48:00.000Z",
         "cover": "",
-        "title": "浅析 Java8 引入的 CompletableFuture"
+        "math": "",
+        "title": "浅析 Java8 引入的 CompletableFuture",
+        "urlname": "25168e16-5acb-8006-9eb0-e37fef36dd58"
       },
       "url": "https://www.notion.so/Java8-CompletableFuture-25168e165acb80069eb0e37fef36dd58",
       "public_url": null
@@ -2044,9 +2052,13 @@
       "properties": {
         "updated": "2025-08-17T14:02:00.000Z",
         "categories": "计算机网络",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2025-04-03T06:23:00.000Z",
         "cover": "",
-        "title": "谈谈 TCP 传输控制协议的特点"
+        "math": "",
+        "title": "谈谈 TCP 传输控制协议的特点",
+        "urlname": "1ca68e16-5acb-807a-98ba-f8249f0fb187"
       },
       "url": "https://www.notion.so/TCP-1ca68e165acb807a98baf8249f0fb187",
       "public_url": null
@@ -2106,9 +2118,13 @@
       "properties": {
         "updated": "2025-08-18T11:25:00.000Z",
         "categories": "操作系统",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2025-03-28T15:40:00.000Z",
         "cover": "",
-        "title": "进程间的通信方式"
+        "math": "",
+        "title": "进程间的通信方式",
+        "urlname": "1c468e16-5acb-8005-9113-c96ddf3cb2f1"
       },
       "url": "https://www.notion.so/1c468e165acb80059113c96ddf3cb2f1",
       "public_url": null
@@ -2837,9 +2853,13 @@
       "properties": {
         "updated": "2025-08-17T14:12:00.000Z",
         "categories": "计算机网络",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2024-11-20T14:02:00.000Z",
         "cover": "",
-        "title": "梳理 OSI 网络模型：基于访问一个网站的全过程"
+        "math": "",
+        "title": "梳理 OSI 网络模型：基于访问一个网站的全过程",
+        "urlname": "14468e16-5acb-8045-a415-ed3987d00649"
       },
       "url": "https://www.notion.so/OSI-14468e165acb8045a415ed3987d00649",
       "public_url": null
