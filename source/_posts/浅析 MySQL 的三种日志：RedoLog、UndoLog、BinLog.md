@@ -1,9 +1,9 @@
 ---
 title: 浅析 MySQL 的三种日志：RedoLog、UndoLog、BinLog
 date: 2025-08-11T17:40:00
-updated: 2025-08-13T15:37:00
+updated: 2025-08-27T16:04:00
 categories: 
-  - MySQL
+  - [MySQL, 日志]
 cover: 
 ---
 
