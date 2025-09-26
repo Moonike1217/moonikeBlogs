@@ -18,11 +18,11 @@
 
 # 用于浏览器标签的图标
 # Icon for browser tab
-favicon: /img/cat.png
+favicon: /img/Moonike.JPG
 
 # 用于苹果设备的图标
 # Icon for Apple touch
-apple_touch_icon: /img/cat.png
+apple_touch_icon: /img/Moonike.JPG
 
 # 浏览器标签页中的标题分隔符，效果：文章名 - 站点名
 # Title separator in browser tab, eg: article - site
@@ -492,7 +492,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: /img/default.png
+  banner_img: /img/DSCF3041.JPG
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
@@ -564,7 +564,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/default.png
+  banner_img: /img/DSCF3041.JPG
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
@@ -928,7 +928,7 @@ discuss:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/default.png
+  banner_img: /img/DSCF3041.JPG
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -939,7 +939,7 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/DSCF3041.JPG
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -968,7 +968,7 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/DSCF3041.JPG
   banner_img_height: 80
   banner_mask_alpha: 0.3
   tagcloud:
@@ -985,7 +985,7 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/DSCF3041.JPG
   banner_img_height: 60
   banner_mask_alpha: 0.3
   avatar: /img/head_icon.jpg
@@ -1008,7 +1008,7 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: /img/default.png
+  banner_img: /img/DSCF3041.JPG
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -1019,7 +1019,7 @@ page:
 #---------------------------
 page404:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/DSCF3041.JPG
   banner_img_height: 85
   banner_mask_alpha: 0.3
   # 重定向到首页的延迟(毫秒)
@@ -1033,15 +1033,15 @@ page404:
 #---------------------------
 links:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/DSCF3041.JPG
   banner_img_height: 60
   banner_mask_alpha: 0.3
   # 友链的成员项
   # Member item of page
   items:
     - {
-      title: "Shabix Blog",
-      intro: "Shabix的博客",
+      title: "Shabix's Blog",
+      intro: "An awesome front-end developer from NJUPT.",
       link: "https://shabix.fun/",
       avatar: "/img/shabix.png"
     }
