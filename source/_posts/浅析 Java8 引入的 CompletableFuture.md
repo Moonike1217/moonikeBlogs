@@ -1,7 +1,7 @@
 ---
 title: 浅析 Java8 引入的 CompletableFuture
 date: 2025-08-16T17:48:00
-updated: 2025-08-17T21:42:00
+updated: 2025-09-04T16:13:00
 categories: 
   - [Java, Java基础]
 cover: 

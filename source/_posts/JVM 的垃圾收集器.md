@@ -1,7 +1,7 @@
 ---
 title: JVM 的垃圾收集器
 date: 2025-04-08T11:42:00
-updated: 2025-08-22T16:11:00
+updated: 2025-10-16T12:53:00
 categories: 
   - [Java, JVM虚拟机]
 cover: 
@@ -10,10 +10,11 @@ cover:
 没有最好的垃圾收集器，更没有万能的垃圾收集器，**我们要做的就是根据具体应用场景选择适合自己的垃圾收集器**。试想一下：如果有一种四海之内、任何场景下都适用的完美收集器存在，那么我们的 HotSpot 虚拟机就不会实现那么多不同的垃圾收集器了。
 
 
-JDK 默认垃圾收集器（使用 `java -XX:+PrintCommandLineFlags -version` 命令查看）：
+不同版本 JDK 的默认垃圾收集器（使用 `java -XX:+PrintCommandLineFlags -version` 命令查看）：
 
-- JDK 8: Parallel Scavenge（新生代）+ Parallel Old（老年代）
-- JDK 9 ~ JDK22: G1
+- JDK 8: Parallel Scavenge（新生代）+ Parallel Old（老年代）；引入了 G1 垃圾回收器，可以通过 `-XX:+UseG1GC` 启用。
+- JDK 9 ~ JDK16: G1
+- JDK 17：依旧使用 G1 作为默认垃圾回收器，但引入了 ZGC。
 
 # Java 垃圾收集器对比表
 
@@ -140,7 +141,7 @@ G1 每次根据用户设定允许的收集停顿时间（使用参数`-XX：MaxG
 
 - 初始标记（Initial Marking）：短暂停顿（Stop-The-World，STW），标记从 GC Roots 可直接引用的对象，即标记所有直接可达的活跃对象。
 - 并发标记（Concurrent Marking）：同时开启 GC 和用户线程，递归寻找可达对象。由于用户线程可能会不断的更新引用域，所以 GC 线程无法保证可达性分析的实时性。所以这个算法里会跟踪记录这些发生引用更新的地方。
-- 最终标记（Final Marking）：修正并发标记期间因为用户程序继续运行而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般会比初始标记阶段的时间稍长，远远比并发标记阶段时间短。
+- 最终标记（Final Marking）：**再次** STW，修正并发标记期间因为用户程序继续运行而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般会比初始标记阶段的时间稍长，远远比并发标记阶段时间短。
 - 筛选回收（Live Data Counting and Evacuation）：**更新 Region 的统计数据，对各个 Region 的回收价值和成本进行排序，根据用户所期望的停顿时间来制定回收计划**，可以自由选择任意多个 Region 构成回收集，然后把决定回收的那一部分 Region 的存活对象复制到空的 Region 中，再清理掉整个旧 Region 的全部空间。这里的操作涉及存活对象的移动，所以必须暂停用户线程，由多条收集器线程并行完成。
 
 # ZGC 收集器
