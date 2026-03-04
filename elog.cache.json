@@ -2013,9 +2013,13 @@
       "properties": {
         "updated": "2025-10-16T04:53:00.000Z",
         "categories": "Java/JVM虚拟机",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2025-04-08T03:42:00.000Z",
         "cover": "",
-        "title": "JVM 的垃圾收集器"
+        "math": "",
+        "title": "JVM 的垃圾收集器",
+        "urlname": "1cf68e16-5acb-8065-9625-e7fd7717652f"
       },
       "url": "https://www.notion.so/JVM-1cf68e165acb80659625e7fd7717652f",
       "public_url": null
@@ -2837,9 +2841,13 @@
       "properties": {
         "updated": "2025-10-15T11:10:00.000Z",
         "categories": "架构设计",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2025-07-28T02:54:00.000Z",
         "cover": "",
-        "title": "RBAC 权限模型梳理"
+        "math": "",
+        "title": "RBAC 权限模型梳理",
+        "urlname": "23e68e16-5acb-805b-a1f5-f0431fbbf665"
       },
       "url": "https://www.notion.so/RBAC-23e68e165acb805ba1f5f0431fbbf665",
       "public_url": null
@@ -3085,9 +3093,13 @@
       "properties": {
         "updated": "2025-09-04T08:13:00.000Z",
         "categories": "Java/Java基础",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2025-08-16T09:48:00.000Z",
         "cover": "",
-        "title": "浅析 Java8 引入的 CompletableFuture"
+        "math": "",
+        "title": "浅析 Java8 引入的 CompletableFuture",
+        "urlname": "25168e16-5acb-8006-9eb0-e37fef36dd58"
       },
       "url": "https://www.notion.so/Java8-CompletableFuture-25168e165acb80069eb0e37fef36dd58",
       "public_url": null
@@ -3153,9 +3165,13 @@
       "properties": {
         "updated": "2025-10-15T10:46:00.000Z",
         "categories": "Redis",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2025-10-15T07:57:00.000Z",
         "cover": "",
-        "title": "Redis 中 Hash 的应用场景"
+        "math": "",
+        "title": "Redis 中 Hash 的应用场景",
+        "urlname": "28d68e16-5acb-8040-a912-f205f079ca8f"
       },
       "url": "https://www.notion.so/Redis-Hash-28d68e165acb8040a912f205f079ca8f",
       "public_url": null
@@ -3185,9 +3201,13 @@
       "properties": {
         "updated": "2026-01-10T17:35:00.000Z",
         "categories": "Vercel",
+        "mermaid": "",
+        "status": "已发布",
         "date": "2026-01-10T17:33:00.000Z",
         "cover": "",
-        "title": "从腾讯云 SCF 迁移到 Vercel：Python Serverless 实战记录"
+        "math": "",
+        "title": "从腾讯云 SCF 迁移到 Vercel：Python Serverless 实战记录",
+        "urlname": "2e468e16-5acb-8035-99e7-c548a5d3241e"
       },
       "url": "https://www.notion.so/SCF-Vercel-Python-Serverless-2e468e165acb803599e7c548a5d3241e",
       "public_url": null
